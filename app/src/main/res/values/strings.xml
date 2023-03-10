@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="temp">temp</string>
+    <string name="temp_number">014525</string>
+
+    <array name="items">
+        <item>Decimal</item>
+        <item>Binary</item>
+        <item>Hex</item>
+        <item>Octal</item>
+    </array>
+</resources>
