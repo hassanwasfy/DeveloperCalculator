@@ -7,47 +7,51 @@
     android:scrollbars="vertical"
     tools:context=".MainActivity">
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:lottie_rawRes="@raw/wt"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:lottie_loop="true" />
+
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/convertFrom"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_16sdp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:elevation="@dimen/_8sdp"
-        android:hint="Convert From">
+        android:hint="Convert From"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lottie">
 
         <AutoCompleteTextView
             android:id="@+id/selection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="none"
-            />
+            android:inputType="none" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/editTextHolder"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/convertFrom"
-        android:layout_margin="@dimen/_16sdp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_16sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/convertFrom">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editText"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
     </com.google.android.material.textfield.TextInputLayout>
-
-
-
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

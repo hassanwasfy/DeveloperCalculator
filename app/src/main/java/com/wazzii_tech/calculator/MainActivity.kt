@@ -13,22 +13,38 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.editText.isEnabled = false
+        binding.editTextHolder.hint = "Choose Type"
     }
 
 
     override fun onStart() {
         super.onStart()
+        loadData()
+        binding.selection.setOnItemClickListener { _, _, i, _ ->
+            binding.editText.isEnabled = true
+            binding.editTextHolder.hint = ""
+            when (i) {
+                0 -> binding.editText.hint = "ex : 124"
+                1 -> binding.editText.hint = "ex : 011001100"
+                2 -> binding.editText.hint = "ex : 30A2"
+                else -> binding.editText.hint = "ex : 144"
+            }
+        }
 
-        val items = Constants.optionMenu
-        val adapter = ArrayAdapter(baseContext, R.layout.list_item, items)
-        (binding.selection as? AutoCompleteTextView)?.setAdapter(adapter)
+
+
 
     }
 
 
 
 
-
+    private fun loadData(){
+        val items = Constants.optionMenu
+        val adapter = ArrayAdapter(baseContext, R.layout.list_item, items)
+        (binding.selection as? AutoCompleteTextView)?.setAdapter(adapter)
+    }
 
     fun hasValidInput(chosen:Int) =
         when(chosen){
