@@ -2,10 +2,8 @@ package com.wazzii_tech.calculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.InputType
 import android.widget.ArrayAdapter
-import android.widget.EditText
-import android.widget.Toast
+import android.widget.AutoCompleteTextView
 import com.wazzii_tech.calculator.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -20,16 +18,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        binding.btnConvert.setOnClickListener {
-            val chosen = binding.from.selectedItemPosition
-            if (chosen == 1) binding.editText.inputType = InputType.TYPE_CLASS_TEXT
-            else binding.editText.inputType = InputType.TYPE_CLASS_NUMBER
-            if (hasValidInput(chosen)){
 
-            }else{
-                Toast.makeText(baseContext,"Check Data Again!",Toast.LENGTH_SHORT).show()
-            }
-        }
+        val items = Constants.optionMenu
+        val adapter = ArrayAdapter(baseContext, R.layout.list_item, items)
+        (binding.selection as? AutoCompleteTextView)?.setAdapter(adapter)
+
     }
 
 
